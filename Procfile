@@ -1,0 +1,1 @@
+web: gunicorn pollster2.wsgi

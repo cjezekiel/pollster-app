@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="results">
+            <div class="title">
+                <h3>{{ question.question_text }}</h3>
+            </div>
+            <div class="results-container">
+            {% for choice in question.choice_set.all  %}
+                <div class="dataset">
+                        <div class="text">{{ choice.choice_text }}</div>
+                        <div class="data">{{ choice.votes }} vote{{ choice.votes | pluralize }}</div>
+                    </div>
+            {% endfor %}
+            </div>
+            <div class="back-vote">
+                <a href="{% url 'polls:index' %}">Back To Polls</a>
+                <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="questions">
+        <h3>Poll Questions</h3>
+            {% if latest_question_list %}
+                {% for question in latest_question_list  %}
+                    <div class="question">
+                        <div class="text">{{ question.question_text }}</div>
+                        <div class="vote-result">
+                            <a href="{% url 'polls:detail' question.id %}" class="now">Vote Now</a>
+                            <a href="{% url 'polls:results' question.id %}" class="result">Results</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div>No questions available</div>
+            {% endif %} 
+    </div>
+{% endblock %}

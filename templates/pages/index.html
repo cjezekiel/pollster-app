@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="details">
+        <h3>Welcome To Pollster</h3>
+        <p>This is an example of a Django polling app</p>
+        <a href="{% url 'polls:index' %}">View Available Polls</a>
+    </div>
+{% endblock %}
